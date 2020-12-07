@@ -28,7 +28,7 @@
 							<v-navigation-drawer v-model="drawer" absolute temporary>
 								<v-list nav dense>
 									<v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
-										<a href="#" class="text-decoration-none">
+										<a href="./index.html" class="text-decoration-none">
 											<v-list-item>
 												<v-list-item-icon>
 													<v-icon>mdi-book-open</v-icon>
@@ -37,7 +37,7 @@
 											</v-list-item>
 										</a>
 
-										<a href="./about.html" class="text-decoration-none">
+										<a href="#" class="text-decoration-none">
 											<v-list-item>
 												<v-list-item-icon>
 													<v-icon>mdi-account</v-icon>
@@ -49,21 +49,62 @@
 								</v-list>
 							</v-navigation-drawer>
 
-							<v-card-title>
-								Surah-surah dalam Al-Quran
-								<v-spacer></v-spacer>
-								<v-text-field v-model="search" append-icon="mdi-magnify" label="Search" single-line
-									hide-details></v-text-field>
-							</v-card-title>
-							<v-data-table :headers="headers" :items="allsurah" :search="search" :footer-props="{
-											'items-per-page-options': [20, 30, 50]
-										}" item-key="nama" show-expand class="elevation-1" loading="true" loading-text="Memuat data...">
-								<template v-slot:expanded-item="{ headers, item }">
-									<td :colspan="headers.length">
-										{{ item.keterangan }}
-									</td>
-								</template>
-							</v-data-table>
+							<template>
+								<h2 class="text-center mt-3">Tentang Aplikasi</h2>
+								<v-container>
+								<p class="text-justify m-3">
+								  Awalnya aplikasi ini dibuat untuk kebutuhan saya pribadi guna mendapatkan infomasi tentang surah-surah Al-Quran serta untuk meningkatkan motivasi saya dalam mempelajari Al-Quran. Namun beberapa waktu yang lalu, saya putuskan untuk mempublikasikan aplikasi ini sebagai portfolio pribadi saya. Dan harapan saya, semoga aplikasi ini dapat menjadi ladang amal bagi saya dan anda yang menggunakannya. Amiinn..
+								</p></v-container>
+							  </template>
+
+							<template>
+								<h2 class="text-center mt-3">Pembuat</h2>
+								<v-container>
+								<v-card
+								  :loading="loading"
+								  class="mx-auto my-3"
+								>
+								  <template slot="progress">
+									<v-progress-linear
+									  color="deep-purple"
+									  height="10"
+									  indeterminate
+									></v-progress-linear>
+								  </template>
+							  
+								  <v-img
+									height="250"
+									src="./a.jpg"
+								  ></v-img>
+							  
+								  <v-card-title><h2>Arya W.</h2></v-card-title>
+							  
+								  <v-card-text>
+				
+							  
+									<div class="mb-4 subtitle-1">
+										Programmer & Desainer
+									</div>
+							  
+									<div>Masih aktif berkreasi. Jika ada masukan atau request fitur di aplikasi ini, bisa kontak langsung kirim email saja dengan cara klik "Kontak" di bawah ini.</div>
+								  </v-card-text>
+							  
+								  <v-divider class="mx-4"></v-divider>
+
+								  <v-card-actions>
+									<a href="mailto:someone@example.com" class="text-decoration-none">
+									<v-btn
+									  color="deep-purple lighten-2"
+									  text
+									  @click="reserve"
+									>
+									  Kontak
+									</v-btn>
+								</a>
+								  </v-card-actions>
+								</v-card>
+							</v-container>
+							  </template>
 						</v-card>
 					</template>
 
