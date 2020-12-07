@@ -125,39 +125,6 @@
 					search: '',
 					allsurah: []
 				}
-			},
-			mounted() {
-				fetch('https://api.banghasan.com/quran/format/json/surat')
-					.then(response => response.json())
-					.then(res => {
-						res.hasil.map(function (surah) {
-							surah.type = surah.type.replace("mekah", "Mekah");
-							surah.type = surah.type.replace("madinah", "Madinah");
-							surah.keterangan = surah.keterangan.replace(/<\/?[^>]+>/gi, '')
-						})
-						this.allsurah = res.hasil
-					})
-			},
-			computed: {
-				headers() {
-					return [
-						{
-							text: 'Nama',
-							align: 'start',
-							sortable: false,
-							value: 'nama',
-						},
-						{
-							text: 'Jumlah Ayat',
-							value: 'ayat',
-						},
-						{
-							text: 'Turun di Kota',
-							value: 'type'
-						},
-						{ text: 'Keterangan', value: 'data-table-expand' },
-					]
-				},
 			}
 		})
 	</script>
